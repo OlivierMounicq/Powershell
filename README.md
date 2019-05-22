@@ -16,12 +16,14 @@ Get-ChildItem Env: | Format-Table -Wrap -AutoSize
  Get-ChildItem -include *.txt -Recurse | %{ $_.Name + ":`n" + (Get-Content -LiteralPath $_.FullName | Out-String)}
 ```
 
+<p style="background-color:powderblue;">This is a paragraph.</p>
+
 
 The output:
 
 ```html
 
-<p style="background-color:powderblue;">This is a paragraph.</p>
+
 
 azerty.txt.txt:
 azerty
