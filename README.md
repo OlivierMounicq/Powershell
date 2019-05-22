@@ -12,6 +12,8 @@ Get-ChildItem Env: | Format-Table -Wrap -AutoSize
 
 #### Merge all file content into a single one
 
+We want to merge the file name with file content
+
 ```ps1
  Get-ChildItem -include *.txt -Recurse | %{ $_.Name + ":`n" + (Get-Content -LiteralPath $_.FullName | Out-String)}
 ```
@@ -31,3 +33,4 @@ toto va à la plage
 blah.txt:
 blah blah blah
 ```
+
