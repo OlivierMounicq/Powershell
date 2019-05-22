@@ -6,9 +6,29 @@
 Get-ChildItem Env: | Format-Table -Wrap -AutoSize
 ```
 
-2/ How to merge several file content into a single one
+### File management
+
+
+
+#### Merge all file content into a single one
 
 ```ps1
  Get-ChildItem -include *.txt -Recurse | %{ $_.Name + ":`n" + (Get-Content -LiteralPath $_.FullName | Out-String)}
 ```
 
+
+
+
+```yml
+azerty.txt.txt:
+azerty
+
+qwerty.txt.txt:
+qwerty
+
+toto.txt:
+toto va à la plage
+
+blah.txt:
+blah blah blah
+```
