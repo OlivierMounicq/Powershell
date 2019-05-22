@@ -19,7 +19,7 @@ Get-ChildItem Env: | Format-Table -Wrap -AutoSize
 
 
 
-```yml
+```html
 azerty.txt.txt:
 azerty
 
