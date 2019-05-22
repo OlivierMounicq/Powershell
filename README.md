@@ -23,14 +23,18 @@ The output:
 ```html
 azerty.txt.txt:
 azerty
+DATE
 
 qwerty.txt.txt:
 qwerty
+DATE
 
-toto.txt:
-toto va à la plage
+Foo.txt:
+foo goes to the beach
+DATE
 
-blah.txt:
-blah blah blah
+something.txt:
+something
+DATE
 ```
 
