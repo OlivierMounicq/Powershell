@@ -17,9 +17,12 @@ Get-ChildItem Env: | Format-Table -Wrap -AutoSize
 ```
 
 
-
+The output:
 
 ```html
+
+<p style="background-color:powderblue;">This is a paragraph.</p>
+
 azerty.txt.txt:
 azerty
 
