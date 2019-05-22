@@ -38,3 +38,15 @@ something
 DATE
 ```
 
+
+#### Modify the content of the file
+
+Here, we want to add two lines in the file and replace DATE by TODAY
+
+```ps1
+ Get-ChildItem -include *.txt -Recurse | %{ $_.Name + ":`n" + (Get-Content -LiteralPath $_.FullName | Out-String)}
+```
+
+
+
+
