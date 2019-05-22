@@ -12,6 +12,8 @@ Get-ChildItem -Path ".\dir1" -include "infra.config" -recurse | %{Add-Content -p
 
 Get-ChildItem -include "infra.config" -recurse | %{Get-Content $_}
 
+
+
 #***************************************************************************************************************************
 #Pad Left
 for($i=0; $i -le 10; $i++){ ([string]$i).PadLeft(3,"0")  }
@@ -70,6 +72,9 @@ Get-ChildItem -Path C:\mydir\subdir\subsubdir -include "*.txt" -recurse | %{ if(
 #Exclude the files for which the path contains PRODUCTION  and COMMO
 Get-ChildItem -Path C:\mydir\subdir\subsubdir -include "*.txt" -recurse | %{ if(($_.FullName -NotLike "*PRODUCTION*") -and ($_.FullName -NotLike "*COMMO*")) {return $_}} |Select-Object FullName
 
+#****************************************************************************************************************************
+#1st : Add two lines and update the suffixes
+Get-ChildItem -Path 
 
 
 
