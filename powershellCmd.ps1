@@ -74,9 +74,48 @@ Get-ChildItem -Path C:\mydir\subdir\subsubdir -include "*.txt" -recurse | %{ if(
 
 #****************************************************************************************************************************
 #1st : Add two lines and update the suffixes
-Get-ChildItem -Path 
+Get-ChildItem -Path D:\GFActivityTester-Conf -include "infra.config" -recurse | %{ (Add-Content -path $_.FullName "`ntestOldService:true`ntestNewService:false"), (Get-Content -LitteralPath $_.FullName | %{ -replace("WORLD.FR","FR.INTRANET") -replace("CIB.FR","FR.INTRANET") }) | Out-File $_.FullName}
+
+#2nd : Update the value 
+Get-ChildItem -Path D:\ActivityTester-Conf -include "infra.config" -recurse | %{if(($_.FullName -NotLike "*PRODUCTION*") -and ($_.FullName -NotLike "*COMMO*") {return $_}} | %{ (Get-Content -LiteralPath $_.FullName | %{ $_ -replace ("testNewService:false","testNewService:true") } ) | Out-File $_.FullName }
+
+#3rd : get infra.config content into a single file
+Get-ChildItem -Path D:\ActivityTest-Conf -include "infra.config" -recurse | %{ $_.FullName + "`n" + (Get-Content -LiteralPath $_.FullName | Out-String) } >> C:\outputDir\allData.txt
+
+#4 : get the list of the modified files
+Get-ChildItem -Path D:\ActivityTester -include "infra.config" -recurse | %{ if(Get-Content -LiteralPath $_.FullName | Out-String) -like "*testNewService:true*"){return º_}} | Select-Object FullName
+
+#5 : get all .cs files with the word mutex (by default, Powershell is insensitive case) and we save the results into a csv file
+Get-ChildItem -Path D:\Projet -include "*.cs" -recurse | %{ if( (Get-Content -LiteralPath $_.FullName | Out-string) like "*mutex*"){return $_} } | Select-Object FullName | Export-Csv C:\outputDir\mutex.csv
+
+#6 : Quantity of files containing the word Mutex
+Get-ChildItem -Path D:\Projet -include "*.cs" -recurse | %{ if( (Get-Content -LiteralPath $_.FullName | Out-string) like "*mutex*"){return $_} } | Select-Object FullName | Measure-Object | Select-Object Count
+
+#7 : Enumerate the files and savec the properties into a CSV file
+Get-Item * | Select-Object DirectoryName, Name, CreationTime | Export-Csv -Path C:\OutputDir\myFile.csv -Delimiter ";"
+
+#8 : Get all projects with GF.Merged.Wrapper
+Get-ChildItem "*.csproj" -recurse | %{ if( (Get-Content -LiteralPath $_.FullName | Out-String) -like "*GF.Merged.Wrapper*"){return $_} } | Select-Object FullName
+
+Get-ChildItem "*.csproj" -recurse | %{ if( (Get-Content -LiteralPath $_.FullName | Out-String) -like "*GF.Merged.Wrapper*"){return $_} } | Select-Object FullName | Out-File "D:\outputDir\data.txt"
+
+Get-ChildItem "*.csproj" -recurse | %{ if( (Get-Content -LiteralPath $_.FullName | Out-String) -like "*GF.Merged.Wrapper*"){return $_} } | Select-Object FullName | Export-Csv -Path "D:\outputDir\data.csv"
+
+#***************************************************************************************************************************
+#Get the item quantity
+Get-ChildItem -recurse | Measure-Object | Select-Object Count
+
+#or
+ (Get-ChildItem -recurse | Measure-Object).Count
+ 
+ #Or
+ 
+ 
 
 
+
+
+#***************************************************************************************************************************
 
 
 
