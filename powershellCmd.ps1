@@ -107,15 +107,39 @@ Get-ChildItem -recurse | Measure-Object | Select-Object Count
 
 #or
  (Get-ChildItem -recurse | Measure-Object).Count
- 
- #Or
- 
- 
-
-
-
 
 #***************************************************************************************************************************
+#1st : Add two lines and update
+Get-ChildItem -Path C:\inputDiir\ -include "infra.config" -recurse | %{ (Add-Content -path $_.FullName "`ntestOldService:true`ntestNewService:true") ,  (Get-Content -LiteralPath $_.FullName | %{ $_ -replace ("CIB.NET","FR.INTRANET") -replace("BANKING.NET","FR.INTRANET") } ) | Out-File $_.FullName
+
+#2nd : update the suffice
+Get-ChildItem -Path C:\inputDir\ -include "infra.config" -recurse | %{ if($_.FullName -Like "*COMMO*"){return $_} } | %{ Get-Content -LiteralPath $_.FullName | %{$_ -replace("FR.INTRANET","CIB.NET") } | Out-File $_.FullName }
+
+#3rd the commo does not use the new service
+Get-ChildItem -Path C:\inputDir\ -include "infra.config" -recurse | %{ if($_.FullName -Like "*COMMO*"){return $_} } | %{ Get-Content -LiteralPath $_.FullName | %{$_ -replace("testNewService:true","testNewService:false") } | Out-File $_.FullName }
+
+#4 : get all infra.config content in a single file
+
+Get-ChildItem -Path C:\inputDir\ -include "infra.config" -recurse | %{ $_.FullName + "`n" + (Get-Content -LiteralPath $_.FullName | Out-String) } >> C:\outputDir\allDate.txt
+
+#***************************************************************************************************************************
+#Selet-string
+Get-ChildItem -Attributes !Directory+!System -recurse -Exclude *.dll, *.exe, *.exe_ | Select-String -Pattern "xml" | Get-Member
+
+#Get files with the the word Timeout
+Get-ChildItem -Attributes !Directory+!System -recurse -Exclude *.dll, *.exe, *.exe_ | Select-String -Pattern "timeout" | Select-Object Path, LineNumber, Line
+
+#delete files
+Get-ChildItem -Exsclude "*.log" | Remove-Item
+
+#sort file by last write date time
+Get-ChildItem "*.log" | Sort-Object LastWriteTimeUtc -Descending
+
+#sort file by last write date time and export the results in the CSV file
+Get-ChildItem "*.log" | Sort-Object LastWriteTimeUtc -Descending | Select-Object Name, LastWriteTime | Export-Csv -Path C:\outputDir\results.csv -Delimiter ";"
+
+#filter out the files by using the date
+Get-ChildItem "*.log" | Sort-Object LastWriteTimeUtc -Descending | %{ if($_.LastWriteTimeUtc -gt (Get-Date).AddYears(-1).AddMonths(-((Get-Date).Month-1)).AddDays(-((Get-Date).Day-1))){Write-Host $_.Name, $_.LastAccessTimeUtc }}
 
 
 
