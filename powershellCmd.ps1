@@ -1,6 +1,14 @@
 #Environment variable
 Get-ChildItem Env: | Format-Table -Wrap -Autosize
 
+
+#==============================================================================================================
+#Rename the extension of several files
+#source extension name : .1
+#target extension name : .txt
+
+Get-ChildItem  *.1  | rename-item -newname { [io.path]::ChangeExtension($_.name, "txt") }
+
 #==============================================================================================================
 #SOME TEST
 
