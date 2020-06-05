@@ -9,6 +9,12 @@ Get-ChildItem Env: | Format-Table -Wrap -Autosize
 
 Get-ChildItem  *.1  | rename-item -newname { [io.path]::ChangeExtension($_.name, "txt") }
 
+
+#=============================================================================================================
+# GET items and copy
+# Get all csproj items from a root directory and copy them to a directory
+Get-ChildItem -include *.csproj -Recurse | %{Copy-Item -Path $_ -Destination "C:\Date\2020.06.05" }
+
 #==============================================================================================================
 #SOME TEST
 
