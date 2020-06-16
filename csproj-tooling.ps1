@@ -44,3 +44,5 @@ Select-Object ProjectName, PackageName, Version, FrameworkVersion
 # Get the line quantity per file and the full path
 Get-ChildItem *.cs -recurse | %{ return new-object psobject -property @{ FullName = $_.FullName ; LineQuantity = (Get-Content -Path $_.FullName).Count  } } | Sort-Object -Property LineQuantity -Descending
 
+# Get the line quantity per file and the full path qnd export the data to CSV file
+Get-ChildItem *.cs -recurse | %{ return new-object psobject -property @{ FullName = $_.FullName ; LineQuantity = (Get-Content -Path $_.FullName).Count  } } | Sort-Object -Property LineQuantity -Descending | Export-Csv -Path .\FileLineQuantity.csv
