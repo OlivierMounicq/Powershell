@@ -63,7 +63,7 @@ IsPublic IsSerial Name                                     BaseType
 True     False    PatternRetriever                         System.Object
 ```
 
-And the you ca call the module from PowerShell :
+And the you can call the module from PowerShell :
 
 ```ps1
  Get-ChildItem | Select-string -pattern "newco" | %{ return $_.Path } | Get-Unique | %{ return new-object psobject -Property @{ StoredProcedure = [StringPatternFinder.PatternRetriever]::GetFileName($_); UsedTables =  [StringPatternFinder.PatternRetriever]::GetTableName($_, "(\[{0,1}Newco)(.*?)\s")} }
