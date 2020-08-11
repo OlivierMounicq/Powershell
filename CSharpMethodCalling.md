@@ -1,5 +1,7 @@
 ## Call a C# module from PowerShell  
 
+The purpose is to retrieve the name of tables used in the stored procedures. And we want to retrieve only the tables stored in the database naming _NewCo_. The prefix of the tables is NewCo.dbo or \[NewCo\].\[dbo\].
+
 #### 1/ Create a new C\# dll
 
 Open VS Code and create a new class library project
