@@ -79,5 +79,6 @@ dbo.GetDetailHistoriqueValorisationByCGPAndClient.StoredProcedure.sql {CGP, COMP
 dbo.GetHistoriqueValorisationByCGPAndClient.StoredProcedure.sql       {CGP, COMPTE, COMPTEDETAIL, ENVELOPE...}
 ...
 ```
-
-
+  
+  
+[Create C# DLL and use method with PowerShell](https://stackoverflow.com/questions/30097002/create-c-sharp-dll-and-use-method-with-powershell)
