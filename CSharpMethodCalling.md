@@ -71,7 +71,29 @@ And the you can call the module from PowerShell :
  Get-ChildItem | Select-string -pattern "newco" | %{ return $_.Path } | Get-Unique | %{ return new-object psobject -Property @{ StoredProcedure = [StringPatternFinder.PatternRetriever]::GetFileName($_); UsedTables =  [StringPatternFinder.PatternRetriever]::GetTableName($_, "(\[{0,1}Newco)(.*?)\s")} }
 ```
 
-Anb we get:
+```ps1
+ Get-ChildItem 
+ | 
+ Select-string -pattern "newco" 
+ | 
+ %{ return $_.Path } 
+ | 
+ Get-Unique 
+ | 
+ %{ 
+    return new-object psobject -Property @
+    { 
+        StoredProcedure = [StringPatternFinder.PatternRetriever]::GetFileName($_); 
+        UsedTables =  [StringPatternFinder.PatternRetriever]::GetTableName($_, "(\[{0,1}Newco)(.*?)\s")
+    } 
+}        
+```
+
+
+
+
+
+And we get:
 
 ```console
 StoredProcedure                                                       UsedTables
