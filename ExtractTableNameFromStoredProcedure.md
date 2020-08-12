@@ -40,3 +40,24 @@ Select-Object StoredProcedure, TableName -Unique
 Sort StoredProcedure, TableName
 ```
 
+And the cmdlet returns 
+
+```console
+StoredProcedure                               TableName
+---------------                               ---------
+GetDetailHistoriqueValorisationByCGPAndClient CGP
+GetDetailHistoriqueValorisationByCGPAndClient Compte
+GetDetailHistoriqueValorisationByCGPAndClient CompteDetail
+GetDetailHistoriqueValorisationByCGPAndClient Envelope
+GetDetailHistoriqueValorisationByCGPAndClient SocieteCGP
+GetDetailHistoriqueValorisationByCGPAndClient Titulaire
+GetDetailHistoriqueValorisationByCGPAndClient TitulaireCompte
+GetHistoriqueValorisationByCGPAndClient       CGP
+GetHistoriqueValorisationByCGPAndClient       Compte
+GetHistoriqueValorisationByCGPAndClient       CompteDetail
+GetHistoriqueValorisationByCGPAndClient       Envelope
+GetHistoriqueValorisationByCGPAndClient       SocieteCGP
+GetHistoriqueValorisationByCGPAndClient       TitulaireCompte
+```
+
+
