@@ -60,4 +60,35 @@ GetHistoriqueValorisationByCGPAndClient       SocieteCGP
 GetHistoriqueValorisationByCGPAndClient       TitulaireCompte
 ```
 
+### 2/ Get the stored procedure depending on the stored procedure
 
+```ps1
+Get-ChildItem | Select-String -pattern "newco" | %{ return [pscustomobject] @{ StoredProcedure = $_.FileName; Str = $_.Line} ; } | %{ return [pscustomobject] @{ StoredProcedure = $_.StoredProcedure; Arr = ([regex]::Matches($_.Str, "Newco\]{0,1}\.(.*?)\s", "IgnoreCase")) } } | Select-Object *  -ExpandProperty Arr  | %{ return [pscustomobject] @{ StoredProcedure = ($_.StoredProcedure -split "\.")[1] ; TableName = (($_.Value -split "\.")[2]) -replace "\[", "" -replace "\]" , "" } } | Select-Object StoredProcedure, TableName -Unique | Sort StoredProcedure, TableName | Group-Object TableName | %{ return $_.Group;} | Select-Object TableName, StoredProcedure
+```
+
+And the cmdlet returns
+
+```console
+TableName                        StoredProcedure
+---------                        ---------------
+CGP                              GetDetailHistoriqueValorisationByCGPAndClient
+CGP                              GetHistoriqueValorisationByCGPAndClient
+CGP                              GetListClientForCGP
+CGP                              GetNewcoCgpAndAccounts
+CGP                              GetValorisationByCGPAndClient
+CGP                              GetValorisationByCGPAndClientByYear
+CGP                              spCALCUL_COMPTE_DDG_STEP_INITIAL
+CGP                              spGetDerogationsComptesTauxRetrocession
+CGP                              spGetMonthlyDetailInfosDroitsEntreeCgp
+CGP                              spIMPORT_ASSURANCE_VIE_DROIT_ENTREE
+CGP                              spIMPORT_ASSURANCE_VIE_ENCOURS_GA
+CGP                              spIMPORT_ASSURANCE_VIE_ENCOURS_GO
+CGP                              spIMPORT_ASSURANCE_VIE_ENCOURS_UC
+CGP                              spIMPORT_ASSURANCE_VIE_FRAIT_ARBITRAGE
+CGP                              spLoadAccountCgpSocieteCgp
+CGP                              spUPDATE_EXONERATION_FOND_DDG_STEP_3
+Compte                           GetDetailHistoriqueValorisationByCGPAndClient
+Compte                           GetHistoriqueValorisationByCGPAndClient
+Compte                           GetListClientForCGP
+Compte                           GetNewcoCgpAndAccounts
+```
