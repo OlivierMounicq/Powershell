@@ -15,7 +15,7 @@ Get-ChildItem | Select-String -pattern "newco" | %{ return [pscustomobject] @{ S
 ```ps1
 Get-ChildItem 
 | 
-Select-String -pattern "newco" #We select the file
+Select-String -pattern "newco" 
 | 
 %{ return [pscustomobject] @{ StoredProcedure = $_.FileName; Str = $_.Line} ; } 
 | 
@@ -26,7 +26,7 @@ Select-String -pattern "newco" #We select the file
     } 
  } 
 | 
-Select-Object *  -ExpandProperty Arr  #Select-Object -ExpandProperty like a SelectMany
+Select-Object *  -ExpandProperty Arr
 | 
 %{ 
   return [pscustomobject] @{ 
