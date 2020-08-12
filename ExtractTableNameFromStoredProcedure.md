@@ -66,6 +66,40 @@ GetHistoriqueValorisationByCGPAndClient       TitulaireCompte
 Get-ChildItem | Select-String -pattern "newco" | %{ return [pscustomobject] @{ StoredProcedure = $_.FileName; Str = $_.Line} ; } | %{ return [pscustomobject] @{ StoredProcedure = $_.StoredProcedure; Arr = ([regex]::Matches($_.Str, "Newco\]{0,1}\.(.*?)\s", "IgnoreCase")) } } | Select-Object *  -ExpandProperty Arr  | %{ return [pscustomobject] @{ StoredProcedure = ($_.StoredProcedure -split "\.")[1] ; TableName = (($_.Value -split "\.")[2]) -replace "\[", "" -replace "\]" , "" } } | Select-Object StoredProcedure, TableName -Unique | Sort StoredProcedure, TableName | Group-Object TableName | %{ return $_.Group;} | Select-Object TableName, StoredProcedure
 ```
 
+```ps1
+Get-ChildItem | Select-String -pattern "newco" 
+| 
+%{ return [pscustomobject] @{ StoredProcedure = $_.FileName; Str = $_.Line} ; } 
+| 
+%{ 
+  return [pscustomobject] @{ 
+    StoredProcedure = $_.StoredProcedure; 
+    Arr = ([regex]::Matches($_.Str, "Newco\]{0,1}\.(.*?)\s", "IgnoreCase")) 
+    } 
+  } 
+| 
+Select-Object *  -ExpandProperty Arr  
+| 
+%{ 
+  return [pscustomobject] @{ 
+    StoredProcedure = ($_.StoredProcedure -split "\.")[1] ; 
+    TableName = (($_.Value -split "\.")[2]) -replace "\[", "" -replace "\]" , "" 
+    } 
+  } 
+| 
+Select-Object StoredProcedure, TableName -Unique 
+| 
+Sort StoredProcedure, TableName 
+| 
+Group-Object TableName 
+| 
+%{ 
+  return $_.Group;
+} 
+| 
+Select-Object TableName, StoredProcedure
+```
+
 And the cmdlet returns
 
 ```console
