@@ -108,3 +108,51 @@ Group-Object LineNumber
   } 
 }
 ```
+
+
+And the cmdlet returns :
+
+```console
+LineNumber Field1                                     Field2
+---------- ------                                     ------
+1          'GetFeeFirstMethod'                        'spGetFeeFirstMethod'
+2          'spAddPromoteursToClient'                  'dbo.spPrintError'
+3          'spApplyMethodAndFacturationToClients'     'dbo.spPrintError'
+4          'spCALCUL_COMPTE_DDG'                      'dbo.spGet_DATE_CALCUL_DDG'
+5          'spCALCUL_COMPTE_DDG'                      'dbo.spCALCUL_COMPTE_DDG_STEP_INITIAL'
+6          'spCALCUL_COMPTE_DDG'                      'dbo.spUPDATE_EXONERATION_COMPTE_DDG_STEP_2'
+7          'spCALCUL_COMPTE_DDG'                      'dbo.spUPDATE_EXONERATION_FOND_DDG_STEP_3'
+8          'spCALCUL_COMPTE_DDG'                      'dbo.spUPDATE_EXONERATION_FOND_DDG_STEP_3Bis_W6'
+9          'spCALCUL_COMPTE_DDG'                      'dbo.spUPDATE_TARIFICATION_FORFAIT_STEP_4'
+10         'spCALCUL_COMPTE_DDG'                      'dbo.spUPDATE_TARIFICATION_PALIER_STEP_5'
+11         'spCALCUL_COMPTE_DDG'                      'dbo.spCALCUL_COMPTE_DDG_STEP_FINALE'
+12         'spCREATE_EVENTS'                          'dbo.spFILL_ATTESTATION_EVENEMENT'
+13         'spDeletePositionDepositaireByIdEvenement' 'dbo.spPrintError'
+14         'spFillOPCVMCentral'                       'dbo.spPrintError'
+15         'spFillOPCVMCentral.old'                   'dbo.spPrintError'
+16         'spFillOPCVMCentral_25012019'              'dbo.spPrintError'
+17         'spFUSION_ASSURANCE_VIE_EC'                'dbo.spPrintError'
+18         'spGetEncoursForAllSousDistributeurs'      'spGetEncoursForSousDistributeursInternal'
+19         'spGetEncoursForOneSousDistributeur'       'spGetEncoursForSousDistributeursInternal'
+20         'spGetFeeSecondMethod'                     'dbo.spPrintError'
+21         'spGetFeeSecondMethod_Test'                'dbo.spPrintError'
+22         'spIMPORT_ASSURANCE_VIE_DROIT_ENTREE'      'dbo.spUPDATE_INCOMP_RETRO_ASSURANCE_VIE_DE'
+23         'spIMPORT_ASSURANCE_VIE_DROIT_ENTREE'      'dbo.spPrintError'
+24         'spIMPORT_ASSURANCE_VIE_ENCOURS_GA'        'dbo.spUPDATE_INCOMP_RETRO_ASSURANCE_VIE_EC_GA_FG'
+25         'spIMPORT_ASSURANCE_VIE_ENCOURS_GA'        'dbo.spUPDATE_INCOMP_RETRO_ASSURANCE_VIE_EC_GA_UC'
+26         'spIMPORT_ASSURANCE_VIE_ENCOURS_GA'        'dbo.spPrintError'
+27         'spIMPORT_ASSURANCE_VIE_ENCOURS_GO'        'dbo.spUPDATE_INCOMP_RETRO_ASSURANCE_VIE_EC_GO'
+28         'spIMPORT_ASSURANCE_VIE_ENCOURS_GO'        'dbo.spPrintError'
+29         'spIMPORT_ASSURANCE_VIE_ENCOURS_UC'        'dbo.spUPDATE_INCOMP_RETRO_ASSURANCE_VIE_EC_UC'
+30         'spIMPORT_ASSURANCE_VIE_ENCOURS_UC'        'dbo.spPrintError'
+31         'spIMPORT_ASSURANCE_VIE_FRAIT_ARBITRAGE'   'dbo.spUPDATE_INCOMP_RETRO_ASSURANCE_VIE_FA'
+32         'spIMPORT_ASSURANCE_VIE_FRAIT_ARBITRAGE'   'dbo.spPrintError'
+33         'spIMPORT_BROUILLARD_DDG'                  'dbo.spPrintError'
+34         'spIMPORT_DATACARAC'                       'dbo.spPrintError'
+35         'spIMPORT_DATAVL'                          'dbo.spPrintError'
+36         'spIMPORT_MOUVEMENT'                       'dbo.spPrintError'
+37         'spIMPORT_POSITION'                        'dbo.spPrintError'
+38         'spImportPromoteurs'                       'dbo.spPrintError'
+39         'spImportPromoteurs.old'                   'dbo.spPrintError'
+40         'spInsertFinaveo2Positions'                'dbo.spPrintError'
+```
