@@ -1,6 +1,6 @@
 ## Extract data from file
 
-We have this file and we want to extract the name 
+We have this file and we want to extract the name the stored procedures:
 
 
 ```txt
@@ -68,4 +68,43 @@ Completion time: 2020-08-13T18:22:10.9829572+02:00
 
 ```ps1
 @(Get-Content .\Warnings.txt) | %{ return [pscustomobject] @{ LineNumber = $_.ReadCount; Content = $_ } } | %{ if($_.Content.StartsWith("The module")){ return $_; } } | %{ return [pscustomobject] @{ LineNumber = $_.LineNumber; Data = [regex]::Matches($_.Content, "'(.*?)'", "IgnoreCase");} } | Select-Object * -ExpandProperty Data | Group-Object LineNumber | %{ return [pscustomobject] @{ LineNumber = $_.Name; Field1 = $_.Group[0].Value; Field2 = $_.Group[1].Value } }
+```
+
+
+
+```ps1
+@(Get-Content .\Warnings.txt) 
+| 
+%{ 
+  return [pscustomobject] @{ 
+    LineNumber = $_.ReadCount; 
+    Content = $_ 
+  } 
+} 
+| 
+%{ 
+  if($_.Content.StartsWith("The module"))
+  { 
+    return $_; 
+  } 
+} 
+| 
+%{ 
+  return [pscustomobject] @{ 
+    LineNumber = $_.LineNumber; 
+    Data = [regex]::Matches($_.Content, "'(.*?)'", "IgnoreCase");
+  } 
+} 
+| 
+Select-Object * -ExpandProperty Data 
+| 
+Group-Object LineNumber 
+| 
+%{ 
+  return [pscustomobject] @{ 
+    LineNumber = $_.Name; 
+    Field1 = $_.Group[0].Value; 
+    Field2 = $_.Group[1].Value 
+  } 
+}
 ```
