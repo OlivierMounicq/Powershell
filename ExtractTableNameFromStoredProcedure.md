@@ -8,7 +8,7 @@ We have a bunch of stored procedure files. And we want extract the tables stored
 The powershell cmdlet :
 
 ```ps1
-Get-ChildItem | Select-String -pattern "newco" | %{ return [pscustomobject] @{ StoredProcedure = $_.FileName; Str = $_.Line} ; } | %{ return [pscustomobject] @{ StoredProcedure = $_.StoredProcedure; Arr = ([regex]::Matches($_.Str, "Newco\]{0,1}\.(.*?)\s", "IgnoreCase")) } } | Select-Object *  -ExpandProperty Arr  | %{ return [pscustomobject] @{ StoredProcedure = ($_.StoredProcedure -split "\.")[1] ; TableName = (($_.Value -split "\.")[2]) -replace "\[", "" -replace "\]" , "" } } | Select-Object StoredProcedure, TableName -Unique | Sort StoredProcedure, TableName
+Get-ChildItem | Select-String -pattern "newco" | %{ return [pscustomobject] @{ StoredProcedure = $_.FileName; Str = $_.Line} ; } | %{ return [pscustomobject] @{ StoredProcedure = $_.StoredProcedure; Arr = ([regex]::Matches($_.Str, "Newco\]{0,1}\.(.*?)\s", "IgnoreCase")) } } | Select-Object *  -ExpandProperty Arr  | %{ return [pscustomobject] @{ StoredProcedure = ($_.StoredProcedure -split "\.")[1] ; TableName = ((($_.Value -split "\.")[2]) -replace "\[", "" -replace "\]" , "").trim() } } | Select-Object StoredProcedure, TableName -Unique | Sort StoredProcedure, TableName 
 ```
 
 
@@ -31,7 +31,7 @@ Select-Object *  -ExpandProperty Arr
 %{ 
   return [pscustomobject] @{ 
     StoredProcedure = ($_.StoredProcedure -split "\.")[1] ; 
-    TableName = (($_.Value -split "\.")[2]) -replace "\[", "" -replace "\]" , "" 
+    TableName = ((($_.Value -split "\.")[2]) -replace "\[", "" -replace "\]" , "" ).trim()
     } 
   } 
 | 
@@ -63,7 +63,7 @@ GetHistoriqueValorisationByCGPAndClient       TitulaireCompte
 ### 2/ Get the stored procedure depending on the stored procedure
 
 ```ps1
-Get-ChildItem | Select-String -pattern "newco" | %{ return [pscustomobject] @{ StoredProcedure = $_.FileName; Str = $_.Line} ; } | %{ return [pscustomobject] @{ StoredProcedure = $_.StoredProcedure; Arr = ([regex]::Matches($_.Str, "Newco\]{0,1}\.(.*?)\s", "IgnoreCase")) } } | Select-Object *  -ExpandProperty Arr  | %{ return [pscustomobject] @{ StoredProcedure = ($_.StoredProcedure -split "\.")[1] ; TableName = (($_.Value -split "\.")[2]) -replace "\[", "" -replace "\]" , "" } } | Select-Object StoredProcedure, TableName -Unique | Sort StoredProcedure, TableName | Group-Object TableName | %{ return $_.Group;} | Select-Object TableName, StoredProcedure
+Get-ChildItem | Select-String -pattern "newco" | %{ return [pscustomobject] @{ StoredProcedure = $_.FileName; Str = $_.Line} ; } | %{ return [pscustomobject] @{ StoredProcedure = $_.StoredProcedure; Arr = ([regex]::Matches($_.Str, "Newco\]{0,1}\.(.*?)\s", "IgnoreCase")) } } | Select-Object *  -ExpandProperty Arr  | %{ return [pscustomobject] @{ StoredProcedure = ($_.StoredProcedure -split "\.")[1] ; TableName = ((($_.Value -split "\.")[2]) -replace "\[", "" -replace "\]" , "").trim() } } | Select-Object StoredProcedure, TableName -Unique | Sort StoredProcedure, TableName | Group-Object TableName | %{ return $_.Group;} | Select-Object TableName, StoredProcedure
 ```
 
 ```ps1
@@ -83,7 +83,7 @@ Select-Object *  -ExpandProperty Arr
 %{ 
   return [pscustomobject] @{ 
     StoredProcedure = ($_.StoredProcedure -split "\.")[1] ; 
-    TableName = (($_.Value -split "\.")[2]) -replace "\[", "" -replace "\]" , "" 
+    TableName = ((($_.Value -split "\.")[2]) -replace "\[", "" -replace "\]" , "").trim()
     } 
   } 
 | 
