@@ -174,5 +174,35 @@ PS C:\> $list | Group-Object Country | %{ return $_.PSObject.Properties.Value.Pe
 
 ```
 
+### 8/A global grouping operation
+
+
+```ps1
+PS C:\ > $list = [System.Collections.ArrayList]@()
+PS C:\ > $list.Add([pscustomobject] @{ Country = "USA"; Person = [pscustomobject] @{ FirstName = "Albert"; LastName = "Einstein" }})
+PS C:\ > $list.Add([pscustomobject] @{ Country = "USA"; Person = [pscustomobject] @{ FirstName = "Richard"; LastName = "Feynmann" }})
+PS C:\ > $list.Add([pscustomobject] @{ Country = "UK"; Person = [pscustomobject] @{ FirstName = "Alan"; LastName = "Turing" }})
+PS C:\ > $list.Add([pscustomobject] @{ Country = "France"; Person = [pscustomobject] @{ FirstName = "Raymond"; LastName = "Poincaré" }})
+PS C:\ > $list.Add([pscustomobject] @{ Country = "France"; Person = [pscustomobject] @{ FirstName = "Paul"; LastName = "Lévy" }})
+PS C:\ > $list.Add([pscustomobject] @{ Country = "France"; Person = [pscustomobject] @{ FirstName = "Paul"; LastName = "Lévy" }})
+PS C:\ > $list
+
+# Country Person
+# ------- ------
+# USA     @{FirstName=Albert; LastName=Einstein}
+# USA     @{FirstName=Richard; LastName=Feynmann}
+# UK      @{FirstName=Alan; LastName=Turing}
+# France  @{FirstName=Raymond; LastName=Poincaré}
+# France  @{FirstName=Paul; LastName=Lévy}
+# France  @{FirstName=Benoit; LastName=Mandelbrot}
+
+PS C:\> $list | Group-Object Country | %{ return [pscustomobject] @{ Country = $_.Name;  Persons =  ([Linq.Enumerable]::Select(([System.Object[]]$_.PSObject.Properties.Value.Person), [Func[Object, String]] { $args[0].LastName}))  } }
+
+#Country Persons
+#------- -------
+#USA     {Einstein, Feynmann}
+#UK      {Turing}
+#France  {Poincaré, Lévy, Mandelbrot}
+```
 
 
