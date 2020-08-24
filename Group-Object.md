@@ -205,4 +205,7 @@ PS C:\> $list | Group-Object Country | %{ return [pscustomobject] @{ Country = $
 #France  {Poincaré, Lévy, Mandelbrot}
 ```
 
+### 9/ Links
+
+[High Performance PowerShell with LINQ](https://www.red-gate.com/simple-talk/dotnet/net-framework/high-performance-powershell-linq/)
 
