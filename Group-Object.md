@@ -133,7 +133,7 @@ PS C:\>  $list | Group-Object Country | %{ return [pscustomobject] @{ Country = 
 ```
 
 
-### 5/ The 4th grouping : transform a list into a string
+### 6/ The 4th grouping : transform a list into a string
 
 
 ```ps1
@@ -161,7 +161,7 @@ PS C:\> $list | Group-Object Country | Select-Object @{ Expression = {$_.Name}; 
 
 
 
-### 6/ The type of the objects of the output
+### 7/ The type of the objects of the output
 
 ```ps1
 PS C:\> $list | Group-Object Country | %{ return $_.PSObject.Properties.Value.Person.GetType() } 
