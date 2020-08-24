@@ -8,3 +8,7 @@ $list.Add([pscustomobject] @{ Country = "France"; Person = [pscustomobject] @{ F
 $list.Add([pscustomobject] @{ Country = "France"; Person = [pscustomobject] @{ FirstName = "Benoit"; LastName = "Mandelbrot" }})
 
 $list | Group-Object Country | %{ return [pscustomobject] @{ Country = $_.Name;  Persons =  ([Linq.Enumerable]::Select(([System.Object[]]$_.PSObject.Properties.Value.Person), [Func[Object, String]] { $args[0].LastName}))  } } 
+
+$list | Group-Object Country | %{ return [pscustomobject] @{ Country = $_.Name;  Persons =  ([Linq.Enumerable]::Select(([System.Object[]]$_.PSObject.Properties.Value.Person), [Func[Object, String]] { $args[0].LastName + " " + $args[0].FirstName  }))  } }
+
+
