@@ -33,4 +33,7 @@ $list | Group-Object Country
 
 ```
 
+But now we want to get a person list by _country_ : 
+
+
 
