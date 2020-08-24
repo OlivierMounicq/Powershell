@@ -133,7 +133,7 @@ PS C:\>  $list | Group-Object Country | %{ return [pscustomobject] @{ Country = 
 ```
 
 
-
+### 5/ The 4th grouping : transform a list into a string
 
 
 ```ps1
@@ -144,13 +144,6 @@ PS C:>  $list | Group-Object Country | Select-Object Name, @{ Expression = { $_.
 #UK     Alan Turing
 #France Raymond Poincaré; Paul Lévy; Benoit Mandelbrot
 ```
-
-
-
-
-
-
-
 
 And we want to rename the header labels :
 
@@ -168,7 +161,7 @@ PS C:\> $list | Group-Object Country | Select-Object @{ Expression = {$_.Name}; 
 
 
 
-### The type of the objects
+### 6/ The type of the objects of the output
 
 ```ps1
 PS C:\> $list | Group-Object Country | %{ return $_.PSObject.Properties.Value.Person.GetType() } 
