@@ -22,5 +22,15 @@ $list.Add([pscustomobject] @{ Country = "France"; Person = "Benoit Mandelbrot" }
 And we want to group by _Country_  
 
 
+```ps1
+$list | Group-Object Country
+
+#Count Name                      Group
+#----- ----                      -----
+#    2 USA                       {@{Country=USA; Person=Albert Einstein}, @{Country=USA; Person=Richard Feynmann}}
+#    1 UK                        {@{Country=UK; Person=Alan Turing}}
+#    3 France                    {@{Country=France; Person=Raymond Poincaré}, @{Country=France; Person=Paul Lévy}, @{Country=France; Person=Benoit Mandelbrot}}
+
+```
 
 
