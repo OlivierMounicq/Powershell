@@ -69,7 +69,8 @@ PS C:\> $list | Group-Object Country | Select-Object @{ Expression = {$_.Name}; 
 ### The type of the objects
 
 ```ps1
-PS C:\> $list | Group-Object Country | %{ return $_.PSObject.Properties.Value.Person.GetType() }                                                                                                                                                                                                      
+PS C:\> $list | Group-Object Country | %{ return $_.PSObject.Properties.Value.Person.GetType() } 
+
 #IsPublic IsSerial Name                                     BaseType
 #-------- -------- ----                                     --------
 #True     True     Object[]                                 System.Array
