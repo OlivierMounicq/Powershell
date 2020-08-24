@@ -5,25 +5,25 @@ Let a list of persons :
 Create an empty list : 
 
 ```ps1
-$list = [System.Collections.ArrayList]@()
+PS C:> $list = [System.Collections.ArrayList]@()
 ```
 
 Add the person and the city  
 
 ```ps1
-$list.Add([pscustomobject] @{ Country = "USA"; Person = "Albert Einstein" })
-$list.Add([pscustomobject] @{ Country = "USA"; Person = "Richard Feynmann" })
-$list.Add([pscustomobject] @{ Country = "UK"; Person = "Alan Turing" })
-$list.Add([pscustomobject] @{ Country = "France"; Person = "Raymond Poincaré" })
-$list.Add([pscustomobject] @{ Country = "France"; Person = "Paul Lévy" })
-$list.Add([pscustomobject] @{ Country = "France"; Person = "Benoit Mandelbrot" })
+PS C:> $list.Add([pscustomobject] @{ Country = "USA"; Person = "Albert Einstein" })
+PS C:> $list.Add([pscustomobject] @{ Country = "USA"; Person = "Richard Feynmann" })
+PS C:> $list.Add([pscustomobject] @{ Country = "UK"; Person = "Alan Turing" })
+PS C:> $list.Add([pscustomobject] @{ Country = "France"; Person = "Raymond Poincaré" })
+PS C:> $list.Add([pscustomobject] @{ Country = "France"; Person = "Paul Lévy" })
+PS C:> $list.Add([pscustomobject] @{ Country = "France"; Person = "Benoit Mandelbrot" })
 ```
 
 And we want to group by _Country_  
 
 
 ```ps1
-$list | Group-Object Country
+PS C:> $list | Group-Object Country
 
 #Count Name                      Group
 #----- ----                      -----
@@ -33,7 +33,37 @@ $list | Group-Object Country
 
 ```
 
+The output contains three columns:
+- Count
+- Name : the grouping key value
+- Group : the grouped list
+
+As you can notice, the Group contains the object and each object contains the key. It's better when we can extract the person name and filter out the country
+
 But now we want to get a person list by _country_ : 
+
+```ps1
+PS C:>  $list | Group-Object Country | Select-Object Name, @{ Expression = { $_.PSObject.Properties.Value.Person -join "; " } }                                                                                                                                                                       
+#Name    $_.PSObject.Properties.Value.Person -join "; "
+#----   ------------------------------------------------
+#USA    Albert Einstein; Richard Feynmann
+#UK     Alan Turing
+#France Raymond Poincaré; Paul Lévy; Benoit Mandelbrot
+```
+
+
+And we want to rename the header labels :
+
+```ps1
+
+PS C:\> $list | Group-Object Country | Select-Object @{ Expression = {$_.Name}; Label = "Country" }, @{ Expression = { $_.PSObject.Properties.Value.Person -join "; " };  Label = "Persons" }                                                                                                         
+
+#Country Persons
+#------- -------
+#USA     Albert Einstein; Richard Feynmann
+#UK      Alan Turing
+#France  Raymond Poincaré; Paul Lévy; Benoit Mandelbrot
+```
 
 
 
