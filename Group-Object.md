@@ -171,8 +171,23 @@ PS C:\> $list | Group-Object Country | %{ return $_.PSObject.Properties.Value.Pe
 #True     True     Object[]                                 System.Array
 #True     True     String                                   System.Object
 #True     True     Object[]                                 System.Array
-
 ```
+
+```ps1
+PS C:\> $list | Group-Object Country | Select-Object Group | Get-Member  
+
+
+#   TypeName: Selected.Microsoft.PowerShell.Commands.GroupInfo
+#
+#Name        MemberType   Definition
+#----        ----------   ----------
+#Equals      Method       bool Equals(System.Object obj)
+#GetHashCode Method       int GetHashCode()
+#GetType     Method       type GetType()
+#ToString    Method       string ToString()
+#Group       NoteProperty Collection[psobject] Group=System.Collections.ObjectModel.Collection`1[System.Management.Automation.PSObject]
+```
+
 
 ### 8/A global grouping operation
 
