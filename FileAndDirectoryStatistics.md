@@ -33,10 +33,10 @@ PS C:\> Get-ChildItem IN -File -Recurse | %{ return [pscustomobject] @{ InputFil
 
 ### 5/Compare the content file
 
-Let two directories IN and OUT. And we want to know if a file with a given name in the directory IN is also in the directory OUT and if their contenta are the same. In order to compare the content, we will use the hash code.
+Let two directories IN and OUT. And we want to know if a file with a given name in the directory IN is also in the directory OUT and if their contents are note the same. In order to compare the content, we will use the hash code.
 
 ```ps1
-PS C:\> 
+PS C:\> Get-ChildItem IN -File -Recurse | %{ return [pscustomobject] @{ InputFile = $_.FullName; Name = $_.Name; Directory = $_.Directory; OutputFile = ("E:\Date\2020.09.01\OUT\" + $_.Name); IsFileExist = [System.IO.File]::Exists(("E:\Date\2020.09.01\OUT\" + $_.Name)) } } | %{ if($_.IsFileExist){return $_; } } | %{ return [pscustomobject] @{ InputFile = $_.InputFile; OutputFile = $_.OutputFile;  IsSameFile = ((Get-FileHash $_.InputFile).Hash -eq (Get-FileHash $_.OutputFile).Hash)  } } | %{ if(!$_.IsSameFile){ return $_;} }
 ```
 
 
