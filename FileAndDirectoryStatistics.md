@@ -1,6 +1,6 @@
 
 
-### 1/Get the global file in a directory
+### 1/Get the global file quantity in a directory
 
 Let a directory with sub-folders, we want to get the global quantity of files:
 
