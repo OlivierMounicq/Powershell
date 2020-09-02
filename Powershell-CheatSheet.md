@@ -1,11 +1,11 @@
 
-Get only directory
+__Get only directory__
 ```ps1                                             |
 Get-ChildItem MyDir -Directory -Recurse
 ``` 
 ------------------------------
 
-Get only files
+__Get only files__
 ```ps1                                             |
 Get-ChildItem MyDir -File -Recurse
 ``` 
