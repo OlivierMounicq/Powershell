@@ -18,4 +18,22 @@
 [Several statements](https://github.com/OlivierMounicq/Powershell/blob/master/powershellCmd.ps1)  
 
 
+### C# project
+
+[Compare two C# projects/solutions](https://github.com/OlivierMounicq/Powershell/blob/master/CompareTwoProject.ps1)  
+[PowerShell & XML query | a concret example with csproj file : we want to extract the binary hint path](https://github.com/OlivierMounicq/Powershell/blob/master/Xml-Powershell.ps1)  
+
+### Stored procedures
+
+[Extract the table name from stored procedure files](https://github.com/OlivierMounicq/Powershell/blob/master/ExtractTableNameFromStoredProcedure.md)  
+
+
+### Files and directories
+
+[Extract data from file](https://github.com/OlivierMounicq/Powershell/blob/master/ExtractDataFromFile.md)  
+[Get file and directory statistics](https://github.com/OlivierMounicq/Powershell/blob/master/FileAndDirectoryStatistics.md)  
+[Get file and directory statistics (ps1 file)](https://github.com/OlivierMounicq/Powershell/blob/master/FileAndDirectoryStatistics.ps1)  
+[File manipulation](https://github.com/OlivierMounicq/Powershell/blob/master/FileManagement.md)  
+[Search a string in files](https://github.com/OlivierMounicq/Powershell/blob/master/SearchString.md)  
+
 
