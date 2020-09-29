@@ -16,7 +16,7 @@
 [PowerShell & XML query | a concret example with csproj file : we want to extract the binary hint path](https://github.com/OlivierMounicq/Powershell/blob/master/Xml-Powershell.ps1)  
 [Some PowerShell statement to get information from C# project (rename and get all nuget packages)](https://github.com/OlivierMounicq/Powershell/blob/master/csproj-tooling.ps1)  
 [Several statements](https://github.com/OlivierMounicq/Powershell/blob/master/powershellCmd.ps1)  
-
+[Inner join with ForEach](https://github.com/OlivierMounicq/Powershell/blob/master/Join-ForEach.md)
 
 ### C# project
 
