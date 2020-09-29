@@ -17,6 +17,7 @@
 [Some PowerShell statement to get information from C# project (rename and get all nuget packages)](https://github.com/OlivierMounicq/Powershell/blob/master/csproj-tooling.ps1)  
 [Several statements](https://github.com/OlivierMounicq/Powershell/blob/master/powershellCmd.ps1)  
 [Inner join with ForEach](https://github.com/OlivierMounicq/Powershell/blob/master/Join-ForEach.md)
+[Group-Object with expanded list](https://github.com/OlivierMounicq/Powershell/blob/master/Linq-Group-Object.md)
 
 ### C# project
 
@@ -37,3 +38,5 @@
 [Search a string in files](https://github.com/OlivierMounicq/Powershell/blob/master/SearchString.md)  
 
 
+### LINQ 
+[Group-Object with expanded list](https://github.com/OlivierMounicq/Powershell/blob/master/Linq-Group-Object.md)
