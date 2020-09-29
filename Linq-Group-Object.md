@@ -31,3 +31,12 @@ Paris  {Victor Hugo, Honoré de Balzac}
 Nantes Jules Verne
 ```
 
+And transform the writer list to a string :
+
+```ps1
+PS C:\> $writersList | Group-Object City | %{ return [pscustomobject] @{ City = $_.Name; Writers = $_.Group.FullName -join ", "} }
+City   Writers
+----   -------
+Paris  Victor Hugo, Honoré de Balzac
+Nantes Jules Verne
+```
