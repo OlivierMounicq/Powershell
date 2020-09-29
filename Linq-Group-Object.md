@@ -4,6 +4,11 @@ Let an object list :
 
 ```ps1
 PS C:\ > $writersList = ([pscustomobject] @{ FullName = "Victor Hugo"; City = "Paris"}, [pscustomobject] @{ FullName = "Jules Verne";  City = "Nantes" }, [pscustomobject] @{ FullName = "Honoré de Balzac"; City = "Paris" } ) 
+FullName         City
+--------         ----
+Victor Hugo      Paris
+Jules Verne      Nantes
+Honoré de Balzac Paris
 ```
 
 And we want to group by the _City_ the writers : 
