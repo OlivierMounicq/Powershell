@@ -36,6 +36,7 @@
 [Get file and directory statistics (ps1 file)](https://github.com/OlivierMounicq/Powershell/blob/master/FileAndDirectoryStatistics.ps1)  
 [File manipulation](https://github.com/OlivierMounicq/Powershell/blob/master/FileManagement.md)  
 [Search a string in files](https://github.com/OlivierMounicq/Powershell/blob/master/SearchString.md)  
+[Extract date from the file content and filter out the files](https://github.com/OlivierMounicq/Powershell/blob/master/Extract-Data-And-Rename.ps1)  
 
 
 ### LINQ 
