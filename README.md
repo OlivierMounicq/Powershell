@@ -19,6 +19,10 @@
 [Inner join with ForEach](https://github.com/OlivierMounicq/Powershell/blob/master/Join-ForEach.md)
 [Group-Object with expanded list](https://github.com/OlivierMounicq/Powershell/blob/master/Linq-Group-Object.md)
 
+### Powershell Cheat Sheet
+
+[Cheat Sheet](https://github.com/OlivierMounicq/Powershell/blob/master/Powershell-CheatSheet.md)
+
 ### C# project
 
 [Compare two C# projects/solutions](https://github.com/OlivierMounicq/Powershell/blob/master/CompareTwoProject.ps1)  
