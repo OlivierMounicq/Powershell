@@ -41,7 +41,7 @@
 [File manipulation](https://github.com/OlivierMounicq/Powershell/blob/master/FileManagement.md)  
 [Search a string in files](https://github.com/OlivierMounicq/Powershell/blob/master/SearchString.md)  
 [Extract date from the file content and filter out the files](https://github.com/OlivierMounicq/Powershell/blob/master/Extract-Data-And-Rename.ps1)  
-
+[Copy different file set into different destination directories](https://github.com/OlivierMounicq/Powershell/blob/master/CopyNFiles.md)  
 
 ### LINQ 
 [Group-Object with expanded list](https://github.com/OlivierMounicq/Powershell/blob/master/Linq-Group-Object.md)
