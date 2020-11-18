@@ -1,6 +1,6 @@
 ### Copy N path in several destination folders
 
-We want to split the file set into different small file set with a given quantity and copy each small set into a specific destination directory. And we want to create the destination directorie.  
+We want to split the file set into different small file sets with a given quantity and copy each small set into a specific destination directory. And we want to create the destination directory.  
 
 For instance, we have 102 files in the _Original_ folder and we want copy the first 5 files into the destination directory _C:\Temp\Destination\1_. And then copy the next 5 files into the _C:\Temp\Destination\2_.
 
