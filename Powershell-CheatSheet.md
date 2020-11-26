@@ -42,3 +42,15 @@ __Regex__
 ```ps1                                             
 PS C:\> [Regex]::Matches("There are 123 lines", "(\d+)", "IgnoreCase")[0]
 ``` 
+
+------------------------------
+
+__match__
+
+To determine if the string contains a substring
+
+```ps1                                             
+PS C:\>  "Albert Einstein [Germany]" -match "\[Germany\]"
+True
+``` 
+
