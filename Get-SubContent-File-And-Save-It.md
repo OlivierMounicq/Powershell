@@ -7,6 +7,12 @@ And we perform this action on a set of file.
 PS E:\> Get-ChildItem *.sql |%{ return [pscustomobject] @{ FileName = $_.BaseName; Data = (Get-Content $_) } } | %{ return [pscustomobject] @{ FilePath = "E:\Date\2021.01.07\_tmp\DEV-Output\Tables2\" + $_.FileName + "-cleaned.sql"; Content =  $_.Data[3..($_.Data.Count-1)] } } | %{ $_.Content | Out-File -filepath $_.FilePath }
 ```
 
+Or
+
+```ps1
+PS E:\> $inputDir = "E:\Date\2021.01.07\Company-DEV-DB\Tables\*.sql"; $outputDir = "E:\Date\2021.01.07\Company-DEV-DB-Cleaned\Tables\"; Get-ChildItem -Path $inputDir |%{ return [pscustomobject] @{ FileName = $_.BaseName; Data = (Get-Content $_) } } | %{ return [pscustomobject] @{ FilePath = $outputDir + $_.FileName + "-cleaned.sql"; Content =  $_.Data[3..($_.Data.Count-1)] } } | %{ $_.Content | Out-File -filepath $_.FilePath }
+```
+
 E.g: 
 - an input file
 
