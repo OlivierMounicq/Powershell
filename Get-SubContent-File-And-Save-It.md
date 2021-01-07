@@ -46,9 +46,6 @@ GO
 - the output file 
 
 ```sql
-USE [Company.Client]
-GO
-/****** Object:  Table [dbo].[Apporteur]    Script Date: 07/01/2021 09:56:00 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
