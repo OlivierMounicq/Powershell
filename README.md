@@ -32,6 +32,9 @@
 
 [Extract the table name from stored procedure files](https://github.com/OlivierMounicq/Powershell/blob/master/ExtractTableNameFromStoredProcedure.md)  
 
+### JSON and PowerShell
+
+[PowerShell and JSON](https://github.com/OlivierMounicq/Powershell/blob/master/PowerShell-And-Json.md)
 
 ### Files and directories
 
