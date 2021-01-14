@@ -49,3 +49,7 @@
 
 ### LINQ 
 [Group-Object with expanded list](https://github.com/OlivierMounicq/Powershell/blob/master/Linq-Group-Object.md)
+
+### PowerShell and List
+[List and Powershell](https://github.com/OlivierMounicq/Powershell/blob/master/List-And-PowerShell.md)  
+
