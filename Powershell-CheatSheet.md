@@ -54,3 +54,12 @@ PS C:\>  "Albert Einstein [Germany]" -match "\[Germany\]"
 True
 ``` 
 
+------------------------------
+
+__match : pcik the nth occurence__
+
+```ps1
+PS C:> @("[myDataBase].[dbo].[Table1]","[myDataBase].[dbo].[Table2]") | %{ return [regex]::Matches($_, "\[.*?\]", "IgnoreCase")[2].Value ;}
+[Table1]
+[Table2]
+```
