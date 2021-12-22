@@ -53,3 +53,5 @@
 ### PowerShell and List
 [List and Powershell](https://github.com/OlivierMounicq/Powershell/blob/master/List-And-PowerShell.md)  
 
+### EDMX
+[Extract data from EDMX](https://github.com/OlivierMounicq/Powershell/blob/master/Edmx.ps1)
