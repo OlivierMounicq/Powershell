@@ -22,3 +22,5 @@ $NewStandaloneXML.SelectNodes("//ns:EntityType", $Namespace) | %{ $Table = $_.Na
 
 # Only one statement
 Get-ChildItem .\Model.edmx | %{ $NewStandaloneXml = New-Object -TypeName "System.XML.XmlDocument" ; $NewStandaloneXml.Load($_); $Namespace = New-Object -TypeName "Xml.XmlNamespaceManager" -ArgumentList $NewStandaloneXML.NameTable; $Namespace.AddNamespace("edmx", $NewStandaloneXML.DocumentElement.NamespaceURI); $Namespace.AddNamespace("ns", http://schemas.microsoft.com/ado/2009/11/edm/ssdl); $Namespace.AddNamespace("store", http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator); $Namespace.AddNamespace("customannotation", http://schemas.microsoft.com/ado/2013/11/edm/customannotation); $NewStandaloneXML.SelectNodes("//ns:EntityType", $Namespace) | %{ $Table = $_.Name; $_.SelectNodes("ns:Property", $Namespace) | %{ return [pscustomobject] @{ Table = $Table; Column = $_.Name; ColumnType = $_.Type } } }} | Export-Csv -Path E:\Date\2021.12.22\Test.csv -Delimiter ";"
+
+
