@@ -62,7 +62,7 @@ We want to get all files containing the string _newco_
 
 ```ps1
 PS C:\> Get-ChildItem | Select-string -pattern "newco"
-```ps1
+```
 
 ------------------------------
 
