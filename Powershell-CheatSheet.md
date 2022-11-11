@@ -56,7 +56,7 @@ True
 
 ------------------------------
 
-__Search file with a given string__
+__Search files with a given string__
 
 We want to get all files containing the string _newco_
 
