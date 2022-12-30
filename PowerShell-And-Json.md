@@ -20,3 +20,41 @@ And the output will be :
     }
 ]
 ```
+
+## Read from a file
+
+Let a json file called WorldCupFinal.json:
+
+```json
+[{
+  "Team" : "Argentina",
+  "Players" : [
+    "Martinez"
+    "Molina"
+    "Romero"
+    "Otamendi"
+    "Tagliafico"
+    "De Paul"
+    "Fernandez"
+    "Mac Alister"
+    "Messi"
+    "Alvarez"
+    "Di Maria" 
+  ]},
+{
+  "Team" : "Argentina",
+  "Players" : [
+    "Loris",
+    "Hernandez",
+    "Upamecano",
+    "Varane",
+    "Kounde",
+    "Rabiot",
+    "Tchouameni",
+    "Mbappe",
+    "Griezmann",
+    "Dembele",
+    "Giroud"
+  ],  
+}]
+```
