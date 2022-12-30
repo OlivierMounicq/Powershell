@@ -8,7 +8,7 @@ PS C:\Users> $PSHOME
 
 ## 2/ Create a profile
 ```ps1
-	New-Item -Path $profile -ItemType File -Force
+PS C:\> New-Item -Path $profile -ItemType File -Force
 ```
 
 ## 3/ Add method to the PS session
@@ -26,5 +26,8 @@ function GetVkUrl {
 	return $url.replace('\','').replace('&amp;','&')
 }
 ```
+
+![image](https://user-images.githubusercontent.com/26850726/210091739-20f0f3b7-6e3c-45f0-8844-eba67d95f00c.png)
+
 
 
