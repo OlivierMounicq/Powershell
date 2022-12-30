@@ -29,16 +29,16 @@ Let a json file called ```WorldCupFinal.json```:
 [{
   "Team" : "Argentina",
   "Players" : [
-    "Martinez"
-    "Molina"
-    "Romero"
-    "Otamendi"
-    "Tagliafico"
-    "De Paul"
-    "Fernandez"
-    "Mac Alister"
-    "Messi"
-    "Alvarez"
+    "Martinez",
+    "Molina",
+    "Romero",
+    "Otamendi",
+    "Tagliafico",
+    "De Paul",
+    "Fernandez",
+    "Mac Alister",
+    "Messi",
+    "Alvarez",
     "Di Maria" 
   ]},
 {
