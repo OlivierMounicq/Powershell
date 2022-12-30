@@ -59,6 +59,20 @@ Let a json file called ```WorldCupFinal.json```:
 }]
 ```
 
+And get the french players : 
+
 ```ps1
 PS C:\> Get-Content .\WorldCupFinal.json | ConvertFrom-Json | Where Team -eq "France" | %{ return $_.Players; }
+Loris
+Hernandez
+Upamecano
+Varane
+Kounde
+Rabiot
+Tchouameni
+Mbappe
+Griezmann
+Dembele
+Giroud
 ```
+
