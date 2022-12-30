@@ -23,7 +23,7 @@ And the output will be :
 
 ## Read from a file
 
-Let a json file called WorldCupFinal.json:
+Let a json file called ```WorldCupFinal.json```:
 
 ```json
 [{
@@ -42,7 +42,7 @@ Let a json file called WorldCupFinal.json:
     "Di Maria" 
   ]},
 {
-  "Team" : "Argentina",
+  "Team" : "France",
   "Players" : [
     "Loris",
     "Hernandez",
@@ -57,4 +57,8 @@ Let a json file called WorldCupFinal.json:
     "Giroud"
   ],  
 }]
+```
+
+```ps1
+PS C:\> Get-Content .\WorldCupFinal.json | ConvertFrom-Json | Where Team -eq "France" | %{ return $_.Players; }
 ```
