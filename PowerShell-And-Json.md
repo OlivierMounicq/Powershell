@@ -76,3 +76,65 @@ Dembele
 Giroud
 ```
 
+## Other queries
+
+```ps1
+PS C:\> (Get-Content .\WorldCupFinal.json | ConvertFrom-Json).Team
+Argentina
+France
+```
+
+```ps1
+PS C:\> (Get-Content .\WorldCupFinal.json | ConvertFrom-Json).Players
+Martinez
+Molina
+Romero
+Otamendi
+Tagliafico
+De Paul
+Fernandez
+Mac Alister
+Messi
+Alvarez
+Di Maria
+Loris
+Hernandez
+Upamecano
+Varane
+Kounde
+Rabiot
+Tchouameni
+Mbappe
+Griezmann
+Dembele
+Giroud
+```
+
+```ps1
+PS C:\>(Get-Content .\WorldCupFinal.json | ConvertFrom-Json)[1]
+Team   Players
+----   -------
+France {Loris, Hernandez, Upamecano, Varane…}
+```
+
+```ps1
+PS C:\> (Get-Content .\WorldCupFinal.json | ConvertFrom-Json)[1].Players
+Loris
+Hernandez
+Upamecano
+Varane
+Kounde
+Rabiot
+Tchouameni
+Mbappe
+Griezmann
+Dembele
+Giroud
+```
+
+
+
+
+
+
+
