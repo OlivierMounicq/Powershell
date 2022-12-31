@@ -55,3 +55,6 @@
 
 ### EDMX
 [Extract data from EDMX](https://github.com/OlivierMounicq/Powershell/blob/master/Edmx.ps1)
+
+### PowerShell Profile and Method
+[Powershell Profile & loaded methods](https://github.com/OlivierMounicq/Powershell/blob/master/PsProfile.md)
