@@ -58,3 +58,6 @@
 
 ### PowerShell Profile and Method
 [Powershell Profile & loaded methods](https://github.com/OlivierMounicq/Powershell/blob/master/PsProfile.md)
+
+### Encrypt/Decrypt file
+[Encrypt/Decrypt File](https://github.com/OlivierMounicq/Powershell/blob/master/EncryptDecryptData.md)
