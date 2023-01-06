@@ -33,6 +33,6 @@ function GetVkUrl {
 Next time you open a PS console, the method will be available therefore you can use it !
 
 ```ps1
-PS C:\> GetVkUrl -url "https://zozo.toto/azer
+PS C:\> GetVkUrl -url "https://zozo.toto/azer"
 ```
 
