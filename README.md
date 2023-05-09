@@ -61,3 +61,6 @@
 
 ### Encrypt/Decrypt file
 [Encrypt/Decrypt File](https://github.com/OlivierMounicq/Powershell/blob/master/EncryptDecryptData.md)
+
+### Excel file
+[Generate an Excel file](https://github.com/OlivierMounicq/Powershell/blob/master/Excel.md)
