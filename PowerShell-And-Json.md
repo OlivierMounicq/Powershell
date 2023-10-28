@@ -132,6 +132,38 @@ Dembele
 Giroud
 ```
 
+## Display like a table
+
+```ps1
+Get-Content .\players.json | ConvertFrom-Json | %{ $Team = $_.Team; $_.Players | %{ return [pscustomobject] @{ Team = $Team; Player = $_ } } }
+```
+
+```ps1
+Team      Player
+----      ------
+Argentina Martinez
+Argentina Molina
+Argentina Romero
+Argentina Otamendi
+Argentina Tagliafico
+Argentina De Paul
+Argentina Fernandez
+Argentina Mac Alister
+Argentina Messi
+Argentina Alvarez
+Argentina Di Maria
+France    Loris
+France    Hernandez
+France    Upamecano
+France    Varane
+France    Kounde
+France    Rabiot
+France    Tchouameni
+France    Mbappe
+France    Griezmann
+France    Dembele
+France    Giroud
+```
 
 
 
