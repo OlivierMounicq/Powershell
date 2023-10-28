@@ -135,34 +135,34 @@ Giroud
 ## Display like a table
 
 ```ps1
-Get-Content .\players.json | ConvertFrom-Json | %{ $Team = $_.Team; $_.Players | %{ return [pscustomobject] @{ Team = $Team; Player = $_ } } }
+Get-Content .\players.json | ConvertFrom-Json | %{ $Team = $_.Team; $_.Players | %{ return [pscustomobject] @{ Team = $Team; Player = $_ } } } | Sort Team, Player
 ```
 
 ```ps1
 Team      Player
 ----      ------
-Argentina Martinez
-Argentina Molina
-Argentina Romero
-Argentina Otamendi
-Argentina Tagliafico
+Argentina Alvarez
 Argentina De Paul
+Argentina Di Maria
 Argentina Fernandez
 Argentina Mac Alister
+Argentina Martinez
 Argentina Messi
-Argentina Alvarez
-Argentina Di Maria
-France    Loris
-France    Hernandez
-France    Upamecano
-France    Varane
-France    Kounde
-France    Rabiot
-France    Tchouameni
-France    Mbappe
-France    Griezmann
+Argentina Molina
+Argentina Otamendi
+Argentina Romero
+Argentina Tagliafico
 France    Dembele
 France    Giroud
+France    Griezmann
+France    Hernandez
+France    Kounde
+France    Loris
+France    Mbappe
+France    Rabiot
+France    Tchouameni
+France    Upamecano
+France    Varane
 ```
 
 
