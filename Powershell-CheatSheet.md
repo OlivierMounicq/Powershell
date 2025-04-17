@@ -75,3 +75,14 @@ PS C:> @("[myDataBase].[dbo].[Table1]","[myDataBase].[dbo].[Table2]") | %{ retur
 [Table1]
 [Table2]
 ```
+
+------------------------------
+__Git log__
+
+
+```ps1
+function GitLog {
+	param( [int]$qty)
+	git log --pretty=format:"%h%x09%an%x09%ad%x09%s" -$qty
+}
+```
